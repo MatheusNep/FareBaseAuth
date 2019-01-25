@@ -22,7 +22,16 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        firebaseAuth.signInWithEmailAndPassword("matheus.cursos@hotmail.com", "matheus123")
+        firebaseAuth.signOut();
+
+       if (firebaseAuth.getCurrentUser() != null){
+           Log.i("verificarUsuario", "Usuário está logado!");
+       }else{
+           Log.i("verificarUsuario", "Usuário não está logado!");
+
+       }
+
+        /*firebaseAuth.signInWithEmailAndPassword("matheus.cursos@hotmail.com", "matheus123")
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -34,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     }
-                });
+                });*/
 
         /*
         firebaseAuth.createUserWithEmailAndPassword("matheus.cursos@hotmail.com", "matheus123")
